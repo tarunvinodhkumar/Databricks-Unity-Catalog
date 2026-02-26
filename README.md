@@ -1,87 +1,96 @@
 Bootcamp Project 4 – Azure Data Engineering Pipeline
+
 📌 Project Overview
 
-This project demonstrates an end-to-end Azure Data Engineering solution using:
+-This project demonstrates an end-to-end Azure Data Engineering solution using:
 
-Azure Data Factory (Orchestration & Scheduling)
+-Azure Data Factory (Orchestration & Scheduling)
 
-Azure Databricks (Data Ingestion & Transformation)
+-Azure Databricks (Data Ingestion & Transformation)
 
-Unity Catalog with Delta Lake (Gold Layer Storage)
+-Unity Catalog with Delta Lake (Gold Layer Storage)
 
-Plotly (Visualization)
+-Plotly (Visualization)
 
-The pipeline ingests raw sales data from GitHub, transforms it using PySpark, stores curated data in Unity Catalog, and generates analytical visualizations.
+-The pipeline ingests raw sales data from GitHub, transforms it using PySpark, stores curated data in Unity Catalog, and generates analytical visualizations.
+
+
 📂 Data Source
 
 Sales datasets for three years:
 
-2019
+-2019
 
-2020
+-2020
 
-2021
+-2021
+
 
 Each dataset includes:
 
-SalesOrderNumber
+-SalesOrderNumber
 
-SalesOrderLineNumber
+-SalesOrderLineNumber
 
-OrderDate
+-OrderDate
 
-CustomerName
+-CustomerName
 
-Email
+-Email
 
-Item
+-Item
 
-Quantity
+-Quantity
 
-UnitPrice
+-UnitPrice
 
-Tax
+-Tax
 
 ⚙️ Implementation Steps
+
 1️⃣ Unity Catalog Setup
 
-Created a Catalog
+-Created a Catalog
 
-Created a Schema
+-Created a Schema
 
-Created Volumes for:
+-Created Volumes for:
 
-Raw Data (Bronze)
+-Raw Data (Bronze)
 
-Gold Layer
+-Gold Layer
+
 
 2️⃣ Data Ingestion (Bronze Layer)
 
-Fetched CSV files directly from GitHub
+-Fetched CSV files directly from GitHub
 
-Applied predefined schema
+-Applied predefined schema
 
-Loaded data into Spark DataFrames
+-Loaded data into Spark DataFrames
 
-Stored raw data into Unity Catalog volume
+-Stored raw data into Unity Catalog volume
+
 
 3️⃣ Data Cleaning (Silver Layer)
 
-Removed null primary keys
+-Removed null primary keys
 
-Removed duplicate records using Window function
+-Removed duplicate records using Window function
 
-Ensured latest records retained
+-Ensured latest records retained
+
 
 4️⃣ Gold Layer Aggregation
 
-Performed aggregations:
+-Performed aggregations:
 
 🔹 Customer-Level Aggregation
 
 Total Sales = Quantity × UnitPrice
 
 Total Tax
+
 
 🔹 Year-Level Aggregation
 
@@ -91,77 +100,83 @@ Total Tax per Year
 
 Stored final results as Delta tables in Unity Catalog.
 
+
 📊 Visualization
 
-Used Plotly to generate interactive visualizations:
+-Used Plotly to generate interactive visualizations:
 
-Line graph showing Sales trend (2019–2021)
+-Line graph showing Sales trend (2019–2021)
 
-Line graph showing Tax trend (2019–2021)
+-Line graph showing Tax trend (2019–2021)
 
-Year-over-year comparison
+-Year-over-year comparison
+
 
 🔁 Azure Data Factory Pipeline
 
-Created ADF pipeline
+-Created ADF pipeline
 
-Added Databricks Notebook activity
+-Added Databricks Notebook activity
 
-Configured trigger & scheduling
+-Configured trigger & scheduling
 
-Monitored pipeline execution
+-Monitored pipeline execution
 
-ADF orchestrates the entire workflow automatically.
+-ADF orchestrates the entire workflow automatically.
+
 
 ⭐ Optional Enhancement
 
-Created metadata Delta table
+-Created metadata Delta table
 
-Designed dynamic ingestion notebook
+-Designed dynamic ingestion notebook
 
-Enabled scalable ingestion approach
+-Enabled scalable ingestion approach
+
 
 🛠️ Technologies Used
 
-Azure Data Factory
+-Azure Data Factory
 
-Azure Databricks
+-Azure Databricks
 
-PySpark
+-PySpark
 
-Unity Catalog
+-Unity Catalog
 
-Delta Lake
+-Delta Lake
 
-Plotly
+-Plotly
 
-GitHub
+-GitHub
+
 
 📈 Business Insights
 
-Revenue growth analysis (2019–2021)
+-Revenue growth analysis (2019–2021)
 
-Tax trend evaluation
+-Tax trend evaluation
 
-Customer sales performance
+-Customer sales performance
 
-Year-over-year deviation analysis
+-Year-over-year deviation analysis
+
 
 🎯 Key Learnings
 
-End-to-end cloud data pipeline development
+-End-to-end cloud data pipeline development
 
-Data governance using Unity Catalog
+-Data governance using Unity Catalog
 
-Delta Lake implementation
+-Delta Lake implementation
 
-Window functions for deduplication
+-Window functions for deduplication
 
-Aggregation & KPI generation
+-Aggregation & KPI generation
 
-Workflow orchestration using ADF
+-Workflow orchestration using ADF
 
-Data visualization using Plotly
+-Data visualization using Plotly
 
 👤 Author
 
